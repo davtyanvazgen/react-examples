@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 
-//Updating the State with - setState() method
+//Passing Event Arguments
 class Counter extends Component {
   state = {
     count: 0
   };
 
-  handlingIncrement = () => {
-    // instead " this.state.count++ " we muste use setState() method
+  handleIncrement = product => {
+    console.log(product);
     this.setState({ count: this.state.count + 1 });
+  };
+
+  doHandleIncrement = () => {
+    this.handleIncrement({ id: 1 });
   };
 
   render() {
@@ -16,7 +20,9 @@ class Counter extends Component {
       <div>
         <span className={this.getbadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handlingIncrement}
+          onClick={this.doHandleIncrement}
+          // or We can write without writing - "function doHandleIncrement"
+          //onClick={() => this.handleIncrement(product)}
           className="btn btn-secondary btn-sm"
         >
           Increment
