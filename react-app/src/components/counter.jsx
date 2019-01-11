@@ -1,25 +1,32 @@
 import React, { Component } from "react";
 
-//Embedding Expressions
+//Setting Attributes
 class Counter extends Component {
   state = {
-    count: 2019
+    count: 1
+  };
+
+  styles = {
+    backgroundColor: "green"
   };
 
   render() {
     return (
       <div>
-        <span>Hello World {this.formatCount()} </span>
-        <button>Increment</button>
+        <span style={{ fontSize: 50 }} className="badge badge-primary m-2">
+          {this.formatCount()}
+        </span>
+
+        <button style={this.styles} className="btn btn-secondary btn-sm">
+          Increment
+        </button>
       </div>
     );
   }
 
   formatCount() {
-    //return this.state.count === 0 ? "Zero" : this.state.count;
-    // or
     const { count } = this.state;
-    return count === 2018 ? "Zero" : count;
+    return count === 0 ? "Zero" : count;
   }
 }
 
