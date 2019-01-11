@@ -1,22 +1,26 @@
 import React, { Component } from "react";
 
+//Embedding Expressions
 class Counter extends Component {
+  state = {
+    count: 2019
+  };
+
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
+        <span>Hello World {this.formatCount()} </span>
         <button>Increment</button>
       </div>
-
-      //Compiling without <div>
-      //<React.Fragment>
-      // <h1>Hello World</h1>
-      // <button>Increment</button>;
-      //</React.Fragment>
     );
+  }
+
+  formatCount() {
+    //return this.state.count === 0 ? "Zero" : this.state.count;
+    // or
+    const { count } = this.state;
+    return count === 2018 ? "Zero" : count;
   }
 }
 
 export default Counter;
-
-//Embedding Expressions
