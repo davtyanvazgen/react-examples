@@ -1,25 +1,16 @@
 import React, { Component } from "react";
 
-//Setting Attributes
+//Rendering Classes Dynamically
 class Counter extends Component {
   state = {
-    count: 1
-  };
-
-  styles = {
-    backgroundColor: "green"
+    count: 0
   };
 
   render() {
     return (
       <div>
-        <span style={{ fontSize: 50 }} className="badge badge-primary m-2">
-          {this.formatCount()}
-        </span>
-
-        <button style={this.styles} className="btn btn-secondary btn-sm">
-          Increment
-        </button>
+        <span className={this.getbadgeClasses()}>{this.formatCount()}</span>
+        <button className="btn btn-secondary btn-sm">Increment</button>
       </div>
     );
   }
@@ -27,6 +18,12 @@ class Counter extends Component {
   formatCount() {
     const { count } = this.state;
     return count === 0 ? "Zero" : count;
+  }
+
+  getbadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
   }
 }
 
