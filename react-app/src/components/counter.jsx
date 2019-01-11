@@ -1,22 +1,14 @@
 import React, { Component } from "react";
 
-//Binding Event Handlers
+//Updating the State with - setState() method
 class Counter extends Component {
   state = {
     count: 0
   };
 
-  //   constructor() {
-  //       super();
-  //       this.handlingIncrement = this.handlingIncrement.bind(this);
-  //   }
-  //   handlingIncrement () {
-  //     console.log("Increment Clicked", this);
-  //   }
-  //instead we can use arrow function
-
   handlingIncrement = () => {
-    console.log("Increment Clicked", this);
+    // instead " this.state.count++ " we muste use setState() method
+    this.setState({ count: this.state.count + 1 });
   };
 
   render() {
